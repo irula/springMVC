@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.irula.demo.dao.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.irula.demo.model.Order" >
+    <id column="order_sn" property="orderSn" jdbcType="INTEGER" />
+    <result column="buyer_id" property="buyerId" jdbcType="VARCHAR" />
+    <result column="seller_code" property="sellerCode" jdbcType="VARCHAR" />
+    <result column="car_id" property="carId" jdbcType="VARCHAR" />
+    <result column="order_status" property="orderStatus" jdbcType="INTEGER" />
+    <result column="pay_type" property="payType" jdbcType="BIT" />
+    <result column="goods_amount" property="goodsAmount" jdbcType="DECIMAL" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="reserve_time" property="reserveTime" jdbcType="TIMESTAMP" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="over_time" property="overTime" jdbcType="TIMESTAMP" />
+    <result column="real_pay_amount" property="realPayAmount" jdbcType="DECIMAL" />
+    <result column="need_pay_amount" property="needPayAmount" jdbcType="DECIMAL" />
+    <result column="already_pay_amount" property="alreadyPayAmount" jdbcType="DECIMAL" />
+    <result column="car_vin_number" property="carVinNumber" jdbcType="VARCHAR" />
+    <result column="is_staging" property="isStaging" jdbcType="BIT" />
+    <result column="pay_percent" property="payPercent" jdbcType="DECIMAL" />
+    <result column="get_car_time" property="getCarTime" jdbcType="TIMESTAMP" />
+    <result column="apply_rights_time" property="applyRightsTime" jdbcType="TIMESTAMP" />
+    <result column="commission" property="commission" jdbcType="DECIMAL" />
+    <result column="quality_bond" property="qualityBond" jdbcType="DECIMAL" />
+    <result column="secured_transactions_fee" property="securedTransactionsFee" jdbcType="DECIMAL" />
+    <result column="date_delete" property="dateDelete" jdbcType="TIMESTAMP" />
+    <result column="date_update" property="dateUpdate" jdbcType="TIMESTAMP" />
+    <result column="settle_finish_time" property="settleFinishTime" jdbcType="TIMESTAMP" />
+    <result column="secured_trans_begin_time" property="securedTransBeginTime" jdbcType="TIMESTAMP" />
+    <result column="sales_id" property="salesId" jdbcType="VARCHAR" />
+    <result column="order_source" property="orderSource" jdbcType="INTEGER" />
+    <result column="buyer_name" property="buyerName" jdbcType="VARCHAR" />
+    <result column="identity_card" property="identityCard" jdbcType="VARCHAR" />
+    <result column="buyer_phone" property="buyerPhone" jdbcType="VARCHAR" />
+    <result column="card_type" property="cardType" jdbcType="INTEGER" />
+    <result column="province_code" property="provinceCode" jdbcType="VARCHAR" />
+    <result column="city_code" property="cityCode" jdbcType="VARCHAR" />
+    <result column="site_id" property="siteId" jdbcType="INTEGER" />
+    <result column="order_cancel_time" property="orderCancelTime" jdbcType="TIMESTAMP" />
+    <result column="car_return_time" property="carReturnTime" jdbcType="TIMESTAMP" />
+    <result column="car_name" property="carName" jdbcType="VARCHAR" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="sale_type" property="saleType" jdbcType="CHAR" />
+    <result column="payee" property="payee" jdbcType="VARCHAR" />
+    <result column="bank_name" property="bankName" jdbcType="VARCHAR" />
+    <result column="bank_account" property="bankAccount" jdbcType="VARCHAR" />
+    <result column="earnest" property="earnest" jdbcType="DECIMAL" />
+    <result column="premium" property="premium" jdbcType="DECIMAL" />
+    <result column="down_payments" property="downPayments" jdbcType="DECIMAL" />
+    <result column="mortgage" property="mortgage" jdbcType="DECIMAL" />
+    <result column="mortgage_handling" property="mortgageHandling" jdbcType="DECIMAL" />
+    <result column="transfer" property="transfer" jdbcType="CHAR" />
+    <result column="transfer_fee" property="transferFee" jdbcType="DECIMAL" />
+    <result column="get_archives_fee" property="getArchivesFee" jdbcType="DECIMAL" />
+    <result column="sale_counselor_id" property="saleCounselorId" jdbcType="VARCHAR" />
+    <result column="contract_status" property="contractStatus" jdbcType="BIT" />
+    <result column="buyer_type" property="buyerType" jdbcType="CHAR" />
+    <result column="sales_name" property="salesName" jdbcType="VARCHAR" />
+    <result column="compulsory_liability" property="compulsoryLiability" jdbcType="DECIMAL" />
+    <result column="comments" property="comments" jdbcType="VARCHAR" />
+    <result column="fair_mortgage_fee" property="fairMortgageFee" jdbcType="DECIMAL" />
+    <result column="renewal_deposit" property="renewalDeposit" jdbcType="DECIMAL" />
+    <result column="installation_fee" property="installationFee" jdbcType="DECIMAL" />
+    <result column="insurance_profit" property="insuranceProfit" jdbcType="DECIMAL" />
+    <result column="accessories_profit" property="accessoriesProfit" jdbcType="DECIMAL" />
+    <result column="custom_label" property="customLabel" jdbcType="VARCHAR" />
+    <result column="mortgage_period" property="mortgagePeriod" jdbcType="INTEGER" />
+    <result column="monthly_payment_loan" property="monthlyPaymentLoan" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    order_sn, buyer_id, seller_code, car_id, order_status, pay_type, goods_amount, create_time, 
+    reserve_time, pay_time, over_time, real_pay_amount, need_pay_amount, already_pay_amount, 
+    car_vin_number, is_staging, pay_percent, get_car_time, apply_rights_time, commission, 
+    quality_bond, secured_transactions_fee, date_delete, date_update, settle_finish_time, 
+    secured_trans_begin_time, sales_id, order_source, buyer_name, identity_card, buyer_phone, 
+    card_type, province_code, city_code, site_id, order_cancel_time, car_return_time, 
+    car_name, operator, sale_type, payee, bank_name, bank_account, earnest, premium, 
+    down_payments, mortgage, mortgage_handling, transfer, transfer_fee, get_archives_fee, 
+    sale_counselor_id, contract_status, buyer_type, sales_name, compulsory_liability, 
+    comments, fair_mortgage_fee, renewal_deposit, installation_fee, insurance_profit, 
+    accessories_profit, custom_label, mortgage_period, monthly_payment_loan
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ts_order
+    where order_sn = #{orderSn,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ts_order
+    where order_sn = #{orderSn,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.irula.demo.model.Order" >
+    insert into ts_order (order_sn, buyer_id, seller_code, 
+      car_id, order_status, pay_type, 
+      goods_amount, create_time, reserve_time, 
+      pay_time, over_time, real_pay_amount, 
+      need_pay_amount, already_pay_amount, car_vin_number, 
+      is_staging, pay_percent, get_car_time, 
+      apply_rights_time, commission, quality_bond, 
+      secured_transactions_fee, date_delete, date_update, 
+      settle_finish_time, secured_trans_begin_time, 
+      sales_id, order_source, buyer_name, 
+      identity_card, buyer_phone, card_type, 
+      province_code, city_code, site_id, 
+      order_cancel_time, car_return_time, car_name, 
+      operator, sale_type, payee, 
+      bank_name, bank_account, earnest, 
+      premium, down_payments, mortgage, 
+      mortgage_handling, transfer, transfer_fee, 
+      get_archives_fee, sale_counselor_id, contract_status, 
+      buyer_type, sales_name, compulsory_liability, 
+      comments, fair_mortgage_fee, renewal_deposit, 
+      installation_fee, insurance_profit, accessories_profit, 
+      custom_label, mortgage_period, monthly_payment_loan
+      )
+    values (#{orderSn,jdbcType=INTEGER}, #{buyerId,jdbcType=VARCHAR}, #{sellerCode,jdbcType=VARCHAR}, 
+      #{carId,jdbcType=VARCHAR}, #{orderStatus,jdbcType=INTEGER}, #{payType,jdbcType=BIT}, 
+      #{goodsAmount,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, #{reserveTime,jdbcType=TIMESTAMP}, 
+      #{payTime,jdbcType=TIMESTAMP}, #{overTime,jdbcType=TIMESTAMP}, #{realPayAmount,jdbcType=DECIMAL}, 
+      #{needPayAmount,jdbcType=DECIMAL}, #{alreadyPayAmount,jdbcType=DECIMAL}, #{carVinNumber,jdbcType=VARCHAR}, 
+      #{isStaging,jdbcType=BIT}, #{payPercent,jdbcType=DECIMAL}, #{getCarTime,jdbcType=TIMESTAMP}, 
+      #{applyRightsTime,jdbcType=TIMESTAMP}, #{commission,jdbcType=DECIMAL}, #{qualityBond,jdbcType=DECIMAL}, 
+      #{securedTransactionsFee,jdbcType=DECIMAL}, #{dateDelete,jdbcType=TIMESTAMP}, #{dateUpdate,jdbcType=TIMESTAMP}, 
+      #{settleFinishTime,jdbcType=TIMESTAMP}, #{securedTransBeginTime,jdbcType=TIMESTAMP}, 
+      #{salesId,jdbcType=VARCHAR}, #{orderSource,jdbcType=INTEGER}, #{buyerName,jdbcType=VARCHAR}, 
+      #{identityCard,jdbcType=VARCHAR}, #{buyerPhone,jdbcType=VARCHAR}, #{cardType,jdbcType=INTEGER}, 
+      #{provinceCode,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, #{siteId,jdbcType=INTEGER}, 
+      #{orderCancelTime,jdbcType=TIMESTAMP}, #{carReturnTime,jdbcType=TIMESTAMP}, #{carName,jdbcType=VARCHAR}, 
+      #{operator,jdbcType=VARCHAR}, #{saleType,jdbcType=CHAR}, #{payee,jdbcType=VARCHAR}, 
+      #{bankName,jdbcType=VARCHAR}, #{bankAccount,jdbcType=VARCHAR}, #{earnest,jdbcType=DECIMAL}, 
+      #{premium,jdbcType=DECIMAL}, #{downPayments,jdbcType=DECIMAL}, #{mortgage,jdbcType=DECIMAL}, 
+      #{mortgageHandling,jdbcType=DECIMAL}, #{transfer,jdbcType=CHAR}, #{transferFee,jdbcType=DECIMAL}, 
+      #{getArchivesFee,jdbcType=DECIMAL}, #{saleCounselorId,jdbcType=VARCHAR}, #{contractStatus,jdbcType=BIT}, 
+      #{buyerType,jdbcType=CHAR}, #{salesName,jdbcType=VARCHAR}, #{compulsoryLiability,jdbcType=DECIMAL}, 
+      #{comments,jdbcType=VARCHAR}, #{fairMortgageFee,jdbcType=DECIMAL}, #{renewalDeposit,jdbcType=DECIMAL}, 
+      #{installationFee,jdbcType=DECIMAL}, #{insuranceProfit,jdbcType=DECIMAL}, #{accessoriesProfit,jdbcType=DECIMAL}, 
+      #{customLabel,jdbcType=VARCHAR}, #{mortgagePeriod,jdbcType=INTEGER}, #{monthlyPaymentLoan,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.irula.demo.model.Order" >
+    insert into ts_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderSn != null" >
+        order_sn,
+      </if>
+      <if test="buyerId != null" >
+        buyer_id,
+      </if>
+      <if test="sellerCode != null" >
+        seller_code,
+      </if>
+      <if test="carId != null" >
+        car_id,
+      </if>
+      <if test="orderStatus != null" >
+        order_status,
+      </if>
+      <if test="payType != null" >
+        pay_type,
+      </if>
+      <if test="goodsAmount != null" >
+        goods_amount,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="reserveTime != null" >
+        reserve_time,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="overTime != null" >
+        over_time,
+      </if>
+      <if test="realPayAmount != null" >
+        real_pay_amount,
+      </if>
+      <if test="needPayAmount != null" >
+        need_pay_amount,
+      </if>
+      <if test="alreadyPayAmount != null" >
+        already_pay_amount,
+      </if>
+      <if test="carVinNumber != null" >
+        car_vin_number,
+      </if>
+      <if test="isStaging != null" >
+        is_staging,
+      </if>
+      <if test="payPercent != null" >
+        pay_percent,
+      </if>
+      <if test="getCarTime != null" >
+        get_car_time,
+      </if>
+      <if test="applyRightsTime != null" >
+        apply_rights_time,
+      </if>
+      <if test="commission != null" >
+        commission,
+      </if>
+      <if test="qualityBond != null" >
+        quality_bond,
+      </if>
+      <if test="securedTransactionsFee != null" >
+        secured_transactions_fee,
+      </if>
+      <if test="dateDelete != null" >
+        date_delete,
+      </if>
+      <if test="dateUpdate != null" >
+        date_update,
+      </if>
+      <if test="settleFinishTime != null" >
+        settle_finish_time,
+      </if>
+      <if test="securedTransBeginTime != null" >
+        secured_trans_begin_time,
+      </if>
+      <if test="salesId != null" >
+        sales_id,
+      </if>
+      <if test="orderSource != null" >
+        order_source,
+      </if>
+      <if test="buyerName != null" >
+        buyer_name,
+      </if>
+      <if test="identityCard != null" >
+        identity_card,
+      </if>
+      <if test="buyerPhone != null" >
+        buyer_phone,
+      </if>
+      <if test="cardType != null" >
+        card_type,
+      </if>
+      <if test="provinceCode != null" >
+        province_code,
+      </if>
+      <if test="cityCode != null" >
+        city_code,
+      </if>
+      <if test="siteId != null" >
+        site_id,
+      </if>
+      <if test="orderCancelTime != null" >
+        order_cancel_time,
+      </if>
+      <if test="carReturnTime != null" >
+        car_return_time,
+      </if>
+      <if test="carName != null" >
+        car_name,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="saleType != null" >
+        sale_type,
+      </if>
+      <if test="payee != null" >
+        payee,
+      </if>
+      <if test="bankName != null" >
+        bank_name,
+      </if>
+      <if test="bankAccount != null" >
+        bank_account,
+      </if>
+      <if test="earnest != null" >
+        earnest,
+      </if>
+      <if test="premium != null" >
+        premium,
+      </if>
+      <if test="downPayments != null" >
+        down_payments,
+      </if>
+      <if test="mortgage != null" >
+        mortgage,
+      </if>
+      <if test="mortgageHandling != null" >
+        mortgage_handling,
+      </if>
+      <if test="transfer != null" >
+        transfer,
+      </if>
+      <if test="transferFee != null" >
+        transfer_fee,
+      </if>
+      <if test="getArchivesFee != null" >
+        get_archives_fee,
+      </if>
+      <if test="saleCounselorId != null" >
+        sale_counselor_id,
+      </if>
+      <if test="contractStatus != null" >
+        contract_status,
+      </if>
+      <if test="buyerType != null" >
+        buyer_type,
+      </if>
+      <if test="salesName != null" >
+        sales_name,
+      </if>
+      <if test="compulsoryLiability != null" >
+        compulsory_liability,
+      </if>
+      <if test="comments != null" >
+        comments,
+      </if>
+      <if test="fairMortgageFee != null" >
+        fair_mortgage_fee,
+      </if>
+      <if test="renewalDeposit != null" >
+        renewal_deposit,
+      </if>
+      <if test="installationFee != null" >
+        installation_fee,
+      </if>
+      <if test="insuranceProfit != null" >
+        insurance_profit,
+      </if>
+      <if test="accessoriesProfit != null" >
+        accessories_profit,
+      </if>
+      <if test="customLabel != null" >
+        custom_label,
+      </if>
+      <if test="mortgagePeriod != null" >
+        mortgage_period,
+      </if>
+      <if test="monthlyPaymentLoan != null" >
+        monthly_payment_loan,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderSn != null" >
+        #{orderSn,jdbcType=INTEGER},
+      </if>
+      <if test="buyerId != null" >
+        #{buyerId,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerCode != null" >
+        #{sellerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="carId != null" >
+        #{carId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStatus != null" >
+        #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=BIT},
+      </if>
+      <if test="goodsAmount != null" >
+        #{goodsAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserveTime != null" >
+        #{reserveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="overTime != null" >
+        #{overTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realPayAmount != null" >
+        #{realPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="needPayAmount != null" >
+        #{needPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="alreadyPayAmount != null" >
+        #{alreadyPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="carVinNumber != null" >
+        #{carVinNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="isStaging != null" >
+        #{isStaging,jdbcType=BIT},
+      </if>
+      <if test="payPercent != null" >
+        #{payPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="getCarTime != null" >
+        #{getCarTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applyRightsTime != null" >
+        #{applyRightsTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commission != null" >
+        #{commission,jdbcType=DECIMAL},
+      </if>
+      <if test="qualityBond != null" >
+        #{qualityBond,jdbcType=DECIMAL},
+      </if>
+      <if test="securedTransactionsFee != null" >
+        #{securedTransactionsFee,jdbcType=DECIMAL},
+      </if>
+      <if test="dateDelete != null" >
+        #{dateDelete,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dateUpdate != null" >
+        #{dateUpdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="settleFinishTime != null" >
+        #{settleFinishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="securedTransBeginTime != null" >
+        #{securedTransBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="salesId != null" >
+        #{salesId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderSource != null" >
+        #{orderSource,jdbcType=INTEGER},
+      </if>
+      <if test="buyerName != null" >
+        #{buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="identityCard != null" >
+        #{identityCard,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerPhone != null" >
+        #{buyerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null" >
+        #{cardType,jdbcType=INTEGER},
+      </if>
+      <if test="provinceCode != null" >
+        #{provinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="siteId != null" >
+        #{siteId,jdbcType=INTEGER},
+      </if>
+      <if test="orderCancelTime != null" >
+        #{orderCancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carReturnTime != null" >
+        #{carReturnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carName != null" >
+        #{carName,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="saleType != null" >
+        #{saleType,jdbcType=CHAR},
+      </if>
+      <if test="payee != null" >
+        #{payee,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null" >
+        #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="earnest != null" >
+        #{earnest,jdbcType=DECIMAL},
+      </if>
+      <if test="premium != null" >
+        #{premium,jdbcType=DECIMAL},
+      </if>
+      <if test="downPayments != null" >
+        #{downPayments,jdbcType=DECIMAL},
+      </if>
+      <if test="mortgage != null" >
+        #{mortgage,jdbcType=DECIMAL},
+      </if>
+      <if test="mortgageHandling != null" >
+        #{mortgageHandling,jdbcType=DECIMAL},
+      </if>
+      <if test="transfer != null" >
+        #{transfer,jdbcType=CHAR},
+      </if>
+      <if test="transferFee != null" >
+        #{transferFee,jdbcType=DECIMAL},
+      </if>
+      <if test="getArchivesFee != null" >
+        #{getArchivesFee,jdbcType=DECIMAL},
+      </if>
+      <if test="saleCounselorId != null" >
+        #{saleCounselorId,jdbcType=VARCHAR},
+      </if>
+      <if test="contractStatus != null" >
+        #{contractStatus,jdbcType=BIT},
+      </if>
+      <if test="buyerType != null" >
+        #{buyerType,jdbcType=CHAR},
+      </if>
+      <if test="salesName != null" >
+        #{salesName,jdbcType=VARCHAR},
+      </if>
+      <if test="compulsoryLiability != null" >
+        #{compulsoryLiability,jdbcType=DECIMAL},
+      </if>
+      <if test="comments != null" >
+        #{comments,jdbcType=VARCHAR},
+      </if>
+      <if test="fairMortgageFee != null" >
+        #{fairMortgageFee,jdbcType=DECIMAL},
+      </if>
+      <if test="renewalDeposit != null" >
+        #{renewalDeposit,jdbcType=DECIMAL},
+      </if>
+      <if test="installationFee != null" >
+        #{installationFee,jdbcType=DECIMAL},
+      </if>
+      <if test="insuranceProfit != null" >
+        #{insuranceProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="accessoriesProfit != null" >
+        #{accessoriesProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="customLabel != null" >
+        #{customLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="mortgagePeriod != null" >
+        #{mortgagePeriod,jdbcType=INTEGER},
+      </if>
+      <if test="monthlyPaymentLoan != null" >
+        #{monthlyPaymentLoan,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.irula.demo.model.Order" >
+    update ts_order
+    <set >
+      <if test="buyerId != null" >
+        buyer_id = #{buyerId,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerCode != null" >
+        seller_code = #{sellerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="carId != null" >
+        car_id = #{carId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStatus != null" >
+        order_status = #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="payType != null" >
+        pay_type = #{payType,jdbcType=BIT},
+      </if>
+      <if test="goodsAmount != null" >
+        goods_amount = #{goodsAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserveTime != null" >
+        reserve_time = #{reserveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="overTime != null" >
+        over_time = #{overTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realPayAmount != null" >
+        real_pay_amount = #{realPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="needPayAmount != null" >
+        need_pay_amount = #{needPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="alreadyPayAmount != null" >
+        already_pay_amount = #{alreadyPayAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="carVinNumber != null" >
+        car_vin_number = #{carVinNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="isStaging != null" >
+        is_staging = #{isStaging,jdbcType=BIT},
+      </if>
+      <if test="payPercent != null" >
+        pay_percent = #{payPercent,jdbcType=DECIMAL},
+      </if>
+      <if test="getCarTime != null" >
+        get_car_time = #{getCarTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applyRightsTime != null" >
+        apply_rights_time = #{applyRightsTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commission != null" >
+        commission = #{commission,jdbcType=DECIMAL},
+      </if>
+      <if test="qualityBond != null" >
+        quality_bond = #{qualityBond,jdbcType=DECIMAL},
+      </if>
+      <if test="securedTransactionsFee != null" >
+        secured_transactions_fee = #{securedTransactionsFee,jdbcType=DECIMAL},
+      </if>
+      <if test="dateDelete != null" >
+        date_delete = #{dateDelete,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dateUpdate != null" >
+        date_update = #{dateUpdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="settleFinishTime != null" >
+        settle_finish_time = #{settleFinishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="securedTransBeginTime != null" >
+        secured_trans_begin_time = #{securedTransBeginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="salesId != null" >
+        sales_id = #{salesId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderSource != null" >
+        order_source = #{orderSource,jdbcType=INTEGER},
+      </if>
+      <if test="buyerName != null" >
+        buyer_name = #{buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="identityCard != null" >
+        identity_card = #{identityCard,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerPhone != null" >
+        buyer_phone = #{buyerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="cardType != null" >
+        card_type = #{cardType,jdbcType=INTEGER},
+      </if>
+      <if test="provinceCode != null" >
+        province_code = #{provinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null" >
+        city_code = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="siteId != null" >
+        site_id = #{siteId,jdbcType=INTEGER},
+      </if>
+      <if test="orderCancelTime != null" >
+        order_cancel_time = #{orderCancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carReturnTime != null" >
+        car_return_time = #{carReturnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carName != null" >
+        car_name = #{carName,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="saleType != null" >
+        sale_type = #{saleType,jdbcType=CHAR},
+      </if>
+      <if test="payee != null" >
+        payee = #{payee,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        bank_name = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null" >
+        bank_account = #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="earnest != null" >
+        earnest = #{earnest,jdbcType=DECIMAL},
+      </if>
+      <if test="premium != null" >
+        premium = #{premium,jdbcType=DECIMAL},
+      </if>
+      <if test="downPayments != null" >
+        down_payments = #{downPayments,jdbcType=DECIMAL},
+      </if>
+      <if test="mortgage != null" >
+        mortgage = #{mortgage,jdbcType=DECIMAL},
+      </if>
+      <if test="mortgageHandling != null" >
+        mortgage_handling = #{mortgageHandling,jdbcType=DECIMAL},
+      </if>
+      <if test="transfer != null" >
+        transfer = #{transfer,jdbcType=CHAR},
+      </if>
+      <if test="transferFee != null" >
+        transfer_fee = #{transferFee,jdbcType=DECIMAL},
+      </if>
+      <if test="getArchivesFee != null" >
+        get_archives_fee = #{getArchivesFee,jdbcType=DECIMAL},
+      </if>
+      <if test="saleCounselorId != null" >
+        sale_counselor_id = #{saleCounselorId,jdbcType=VARCHAR},
+      </if>
+      <if test="contractStatus != null" >
+        contract_status = #{contractStatus,jdbcType=BIT},
+      </if>
+      <if test="buyerType != null" >
+        buyer_type = #{buyerType,jdbcType=CHAR},
+      </if>
+      <if test="salesName != null" >
+        sales_name = #{salesName,jdbcType=VARCHAR},
+      </if>
+      <if test="compulsoryLiability != null" >
+        compulsory_liability = #{compulsoryLiability,jdbcType=DECIMAL},
+      </if>
+      <if test="comments != null" >
+        comments = #{comments,jdbcType=VARCHAR},
+      </if>
+      <if test="fairMortgageFee != null" >
+        fair_mortgage_fee = #{fairMortgageFee,jdbcType=DECIMAL},
+      </if>
+      <if test="renewalDeposit != null" >
+        renewal_deposit = #{renewalDeposit,jdbcType=DECIMAL},
+      </if>
+      <if test="installationFee != null" >
+        installation_fee = #{installationFee,jdbcType=DECIMAL},
+      </if>
+      <if test="insuranceProfit != null" >
+        insurance_profit = #{insuranceProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="accessoriesProfit != null" >
+        accessories_profit = #{accessoriesProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="customLabel != null" >
+        custom_label = #{customLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="mortgagePeriod != null" >
+        mortgage_period = #{mortgagePeriod,jdbcType=INTEGER},
+      </if>
+      <if test="monthlyPaymentLoan != null" >
+        monthly_payment_loan = #{monthlyPaymentLoan,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where order_sn = #{orderSn,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.irula.demo.model.Order" >
+    update ts_order
+    set buyer_id = #{buyerId,jdbcType=VARCHAR},
+      seller_code = #{sellerCode,jdbcType=VARCHAR},
+      car_id = #{carId,jdbcType=VARCHAR},
+      order_status = #{orderStatus,jdbcType=INTEGER},
+      pay_type = #{payType,jdbcType=BIT},
+      goods_amount = #{goodsAmount,jdbcType=DECIMAL},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      reserve_time = #{reserveTime,jdbcType=TIMESTAMP},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      over_time = #{overTime,jdbcType=TIMESTAMP},
+      real_pay_amount = #{realPayAmount,jdbcType=DECIMAL},
+      need_pay_amount = #{needPayAmount,jdbcType=DECIMAL},
+      already_pay_amount = #{alreadyPayAmount,jdbcType=DECIMAL},
+      car_vin_number = #{carVinNumber,jdbcType=VARCHAR},
+      is_staging = #{isStaging,jdbcType=BIT},
+      pay_percent = #{payPercent,jdbcType=DECIMAL},
+      get_car_time = #{getCarTime,jdbcType=TIMESTAMP},
+      apply_rights_time = #{applyRightsTime,jdbcType=TIMESTAMP},
+      commission = #{commission,jdbcType=DECIMAL},
+      quality_bond = #{qualityBond,jdbcType=DECIMAL},
+      secured_transactions_fee = #{securedTransactionsFee,jdbcType=DECIMAL},
+      date_delete = #{dateDelete,jdbcType=TIMESTAMP},
+      date_update = #{dateUpdate,jdbcType=TIMESTAMP},
+      settle_finish_time = #{settleFinishTime,jdbcType=TIMESTAMP},
+      secured_trans_begin_time = #{securedTransBeginTime,jdbcType=TIMESTAMP},
+      sales_id = #{salesId,jdbcType=VARCHAR},
+      order_source = #{orderSource,jdbcType=INTEGER},
+      buyer_name = #{buyerName,jdbcType=VARCHAR},
+      identity_card = #{identityCard,jdbcType=VARCHAR},
+      buyer_phone = #{buyerPhone,jdbcType=VARCHAR},
+      card_type = #{cardType,jdbcType=INTEGER},
+      province_code = #{provinceCode,jdbcType=VARCHAR},
+      city_code = #{cityCode,jdbcType=VARCHAR},
+      site_id = #{siteId,jdbcType=INTEGER},
+      order_cancel_time = #{orderCancelTime,jdbcType=TIMESTAMP},
+      car_return_time = #{carReturnTime,jdbcType=TIMESTAMP},
+      car_name = #{carName,jdbcType=VARCHAR},
+      operator = #{operator,jdbcType=VARCHAR},
+      sale_type = #{saleType,jdbcType=CHAR},
+      payee = #{payee,jdbcType=VARCHAR},
+      bank_name = #{bankName,jdbcType=VARCHAR},
+      bank_account = #{bankAccount,jdbcType=VARCHAR},
+      earnest = #{earnest,jdbcType=DECIMAL},
+      premium = #{premium,jdbcType=DECIMAL},
+      down_payments = #{downPayments,jdbcType=DECIMAL},
+      mortgage = #{mortgage,jdbcType=DECIMAL},
+      mortgage_handling = #{mortgageHandling,jdbcType=DECIMAL},
+      transfer = #{transfer,jdbcType=CHAR},
+      transfer_fee = #{transferFee,jdbcType=DECIMAL},
+      get_archives_fee = #{getArchivesFee,jdbcType=DECIMAL},
+      sale_counselor_id = #{saleCounselorId,jdbcType=VARCHAR},
+      contract_status = #{contractStatus,jdbcType=BIT},
+      buyer_type = #{buyerType,jdbcType=CHAR},
+      sales_name = #{salesName,jdbcType=VARCHAR},
+      compulsory_liability = #{compulsoryLiability,jdbcType=DECIMAL},
+      comments = #{comments,jdbcType=VARCHAR},
+      fair_mortgage_fee = #{fairMortgageFee,jdbcType=DECIMAL},
+      renewal_deposit = #{renewalDeposit,jdbcType=DECIMAL},
+      installation_fee = #{installationFee,jdbcType=DECIMAL},
+      insurance_profit = #{insuranceProfit,jdbcType=DECIMAL},
+      accessories_profit = #{accessoriesProfit,jdbcType=DECIMAL},
+      custom_label = #{customLabel,jdbcType=VARCHAR},
+      mortgage_period = #{mortgagePeriod,jdbcType=INTEGER},
+      monthly_payment_loan = #{monthlyPaymentLoan,jdbcType=DECIMAL}
+    where order_sn = #{orderSn,jdbcType=INTEGER}
+  </update>
+</mapper>
